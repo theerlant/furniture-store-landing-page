@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+    --font-raleway: "Raleway", sans-serif;
+    --font-inter: "Inter", sans-serif;
+    --color-primary: #286F6C;
+}
+
+
+body {
+    font-family: 'Saira', sans-serif;
+}
