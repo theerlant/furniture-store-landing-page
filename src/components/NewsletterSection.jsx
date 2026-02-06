@@ -49,6 +49,7 @@ export default function NewsLetterSection() {
                 message: "Invalid email address",
               },
             })}
+            aria-label="Email address to subscribe to our mailing list"
           />
           <button
             type="submit"
@@ -58,14 +59,18 @@ export default function NewsLetterSection() {
           </button>
         </form>
       </div>
-      {errors.email ? (
-        <div className="bg-red-500/50 border border-red-400 p-1 rounded-lg">
-          {errors.email.message}
-        </div>
-      ) : null}
+      <div aria-live="polite" aria-atomic="true" role="alert">
+        {errors.email ? (
+          <div className="bg-red-500/50 border border-red-400 p-1 rounded-lg">
+            {errors.email.message}
+          </div>
+        ) : null}
+      </div>
       {msg ? (
-        <div className="bg-green-500/40 border border-green-400 p-1 rounded-lg">
-          {msg}
+        <div aria-live="polite" aria-atomic="true" role="alert">
+          <div className="bg-green-500/40 border border-green-400 p-1 rounded-lg">
+            {msg}
+          </div>
         </div>
       ) : null}
     </section>

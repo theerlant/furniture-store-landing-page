@@ -50,14 +50,20 @@ function ProductList() {
     <div>
       {data ? (
         <>
-          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 overflow-visible">
-            <AnimatePresence key={page} initial={false} mode="wait">
-              {data?.products.map((v) => (
-                <ProductEntry key={v.id} {...v} />
-              ))}
-            </AnimatePresence>
-          </ul>
-          <div className="mt-12">
+          <div aria-live="polite" aria-label="Products list" role="region">
+            <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 overflow-visible">
+              <AnimatePresence key={page} initial={false} mode="wait">
+                {data?.products.map((v) => (
+                  <ProductEntry key={v.id} {...v} />
+                ))}
+              </AnimatePresence>
+            </ul>
+          </div>
+
+          <div aria-live="polite" className="mt-12">
+            <span className="hidden">
+              Page {page} of {data.totalPages}
+            </span>
             <Pagination
               page={page}
               totalPages={data.totalPages}
@@ -130,6 +136,7 @@ function Pagination({
         className={`p-3 mr-2 bg-white ${!isFirstPage ? " hover:bg-primary hover:text-white active:bg-primary active:text-white active:scale-95" : ""} rounded-full drop-shadow-lg drop-shadow-black/5 ${isFirstPage ? "opacity-20" : ""}`}
         disabled={isFirstPage}
         onClick={() => decrementPage()}
+        aria-label="Previous page of products"
       >
         <RiArrowLeftLine />
       </button>
@@ -145,6 +152,7 @@ function Pagination({
         className={`p-3 mr-2 bg-white ${!isLastPage ? "hover:bg-primary hover:text-white active:bg-primary active:text-white active:scale-95" : ""} rounded-full drop-shadow-lg drop-shadow-black/5 ${isLastPage ? "opacity-20" : ""}`}
         disabled={isLastPage}
         onClick={() => incrementPage()}
+        aria-label="Next page of products"
       >
         <RiArrowRightLine />
       </button>

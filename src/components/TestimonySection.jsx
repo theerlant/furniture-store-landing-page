@@ -102,6 +102,7 @@ function Pagination({
         className={`p-3 mr-2 bg-white hover:opacity-80 active:scale-90 transition-colors rounded-full drop-shadow-lg drop-shadow-black/5 ${isFirstPage ? "opacity-50" : "bg-primary! text-white"}`}
         disabled={isFirstPage}
         onClick={() => decrementPage()}
+        aria-label="Previous testimony"
       >
         <RiArrowLeftLine />
       </button>
@@ -109,6 +110,7 @@ function Pagination({
         className={`p-3 mr-2 bg-white hover:opacity-80 active:scale-90 transition-colors rounded-full drop-shadow-lg drop-shadow-black/5 ${isLastPage ? "opacity-50" : "bg-primary! text-white"}`}
         disabled={isLastPage}
         onClick={() => incrementPage()}
+        aria-label="Next testimony"
       >
         <RiArrowRightLine />
       </button>
