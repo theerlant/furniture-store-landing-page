@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { DOMPurify } from "dompurify";
+import DOMPurify from "dompurify";
 
 export default function AllProductSection() {
   return (

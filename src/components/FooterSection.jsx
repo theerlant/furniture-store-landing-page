@@ -90,7 +90,7 @@ function FooterLinkList({ title, links }) {
       <h2 className="mb-6 text-lg font-medium font-raleway">{title}</h2>
       <ul id={title} className="flex flex-col gap-4">
         {links.map((v, i) => (
-          <li className="font-inter text-sm hover:underline">
+          <li key={i} className="font-inter text-sm hover:underline">
             <a href="#contacts" key={i}>
               {v}
             </a>
