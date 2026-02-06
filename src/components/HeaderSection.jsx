@@ -33,6 +33,7 @@ export default function HeaderSection() {
           <p className="px-0 xl:px-12 text-balance">{data?.description}</p>
           <a
             href="#products"
+            aria-label="Shop for furniture now"
             className="bg-white/30 border border-t-white/50 border-l-white/80 border-white/50 hover:scale-105 transition-transform rounded-lg backdrop-blur-lg py-3 px-9 md:px-16 font-semibold text-sm lg:text-[20px]"
           >
             Shop Now

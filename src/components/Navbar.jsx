@@ -43,7 +43,7 @@ export default function Navbar() {
             FurniShop
           </h1>
           {isDesktop ? (
-            <nav className="flex gap-12 justify-end">
+            <nav id="desktop-nav" className="flex gap-12 justify-end">
               <a href="/" className="font-semibold">
                 Home
               </a>
@@ -60,37 +60,42 @@ export default function Navbar() {
           ) : (
             <AnimatePresence mode="popLayout" initial={false}>
               {menu ? (
-                <motion.div
+                <motion.button
                   key="close"
                   initial={{ opacity: 0, rotate: -90, scale: 0.1 }}
                   animate={{ opacity: 1, rotate: 0, scale: 1 }}
                   exit={{ opacity: 0, rotate: 90, scale: 0.1 }}
                   transition={{ duration: 0.3, ease: easeInOut }}
+                  aria-label="Open navigation menu"
+                  aria-expanded={menu}
+                  aria-controls="mobile-menu"
+                  className="cursor-pointer"
+                  onClick={() => setMenu(false)}
                 >
-                  <RiCloseFill
-                    className="cursor-pointer"
-                    onClick={() => setMenu(false)}
-                  />
-                </motion.div>
+                  <RiCloseFill />
+                </motion.button>
               ) : (
-                <motion.div
+                <motion.button
                   key="menu"
                   initial={{ opacity: 0, rotate: -90, scale: 0.1 }}
                   animate={{ opacity: 1, rotate: 0, scale: 1 }}
                   exit={{ opacity: 0, rotate: 90, scale: 0.1 }}
                   transition={{ duration: 0.3, ease: easeInOut }}
+                  aria-label="Open navigation menu"
+                  aria-expanded={menu}
+                  aria-controls="mobile-menu"
+                  className="cursor-pointer"
+                  onClick={() => setMenu(true)}
                 >
-                  <RiMenu3Fill
-                    className="cursor-pointer"
-                    onClick={() => setMenu(true)}
-                  />
-                </motion.div>
+                  <RiMenu3Fill />
+                </motion.button>
               )}
             </AnimatePresence>
           )}
         </motion.div>
         {!isDesktop && menu ? (
           <motion.nav
+            id="mobile-nav"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
