@@ -19,7 +19,21 @@ export default function DataSection() {
       id="track-record"
       className="mx-6 lg:m-8 md:mx-18 lg:mx-32 -translate-y-18 grid grid-cols-2 md:grid-cols-4 gap-y-12 px-6 py-12 rounded-[20px] bg-primary text-white"
     >
-      {data ? (
+      {error && (
+        <div aria-live="assertive" role="alert" className="col-span-2 md:col-span-4 bg-red-900/50 border border-red-400 p-3 rounded-lg mb-4">
+          Failed to load data.
+        </div>
+      )}
+      {loading && !data ? (
+        <>
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="animate-pulse text-center">
+              <div className="bg-white/20 h-10 rounded w-3/4 mx-auto mb-2"></div>
+              <div className="bg-white/20 h-4 rounded w-1/2 mx-auto"></div>
+            </div>
+          ))}
+        </>
+      ) : data ? (
         <>
           <DataItem heading={data.experience} subtitle={"Year\nExperience"} />
           <DataItem heading={data.country} subtitle={"Opened in the country"} />

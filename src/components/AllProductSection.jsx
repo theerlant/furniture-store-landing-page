@@ -48,7 +48,22 @@ function ProductList() {
 
   return (
     <div>
-      {data ? (
+      {error && (
+        <div aria-live="assertive" role="alert" className="bg-red-500/50 border border-red-400 p-3 rounded-lg mb-4">
+          Failed to load products. Please try again.
+        </div>
+      )}
+      {loading && !data ? (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="animate-pulse">
+              <div className="bg-gray-200 w-full aspect-square rounded-2xl mb-2"></div>
+              <div className="bg-gray-200 h-4 rounded w-3/4 mb-2"></div>
+              <div className="bg-gray-200 h-4 rounded w-1/2"></div>
+            </div>
+          ))}
+        </div>
+      ) : data ? (
         <>
           <div aria-live="polite" aria-label="Products list" role="region">
             <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 overflow-visible">

@@ -39,11 +39,24 @@ export default function CategorySection() {
           <RiArrowRightLongLine />
         </a>
       </div>
-      <div className="flex gap-6 p-6 lg:p-0 *:shrink-0 min-w-screen lg:min-w-0 overflow-x-auto lg:overflow-x-visible text-white">
-        {data?.category?.map((v, i) => (
-          <CategoryItem title={v.title} imageSrc={v.image} />
-        ))}
-      </div>
+      {error && (
+        <div aria-live="assertive" role="alert" className="flex-1 bg-red-500/50 border border-red-400 p-3 rounded-lg m-6">
+          Failed to load categories.
+        </div>
+      )}
+      {loading && !data ? (
+        <div className="flex gap-6 p-6 lg:p-0 *:shrink-0 min-w-screen lg:min-w-0 overflow-x-auto lg:overflow-x-visible">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="relative aspect-1.4 w-50 lg:w-60 xl:w-70 rounded-lg bg-gray-200 animate-pulse"></div>
+          ))}
+        </div>
+      ) : data ? (
+        <div className="flex gap-6 p-6 lg:p-0 *:shrink-0 min-w-screen lg:min-w-0 overflow-x-auto lg:overflow-x-visible text-white">
+          {data?.category?.map((v, i) => (
+            <CategoryItem key={i} title={v.title} imageSrc={v.image} />
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }

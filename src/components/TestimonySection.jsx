@@ -40,7 +40,27 @@ export default function TestimonySection() {
       <h1 className="text-2xl lg:text-[40px] font-semibold">
         What peoples are saying about us
       </h1>
-      {data ? (
+      {error && (
+        <div
+          aria-live="assertive"
+          role="alert"
+          className="bg-red-500/50 border border-red-400 p-3 rounded-lg mb-4"
+        >
+          Failed to load testimonies. Please try again.
+        </div>
+      )}
+      {loading && !data ? (
+        <div className="lg:col-start-1 animate-pulse">
+          <div className="flex gap-4 items-center mb-4">
+            <div className="w-10 lg:w-20 aspect-square bg-gray-200 rounded-full"></div>
+            <div className="flex-1">
+              <div className="bg-gray-200 h-4 rounded w-1/2 mb-2"></div>
+              <div className="bg-gray-200 h-4 rounded w-1/3"></div>
+            </div>
+          </div>
+          <div className="bg-gray-200 h-20 rounded"></div>
+        </div>
+      ) : data ? (
         <div className="lg:col-start-1">
           <TestimonyEntry {...data.testimonials[0]} />
         </div>
@@ -49,14 +69,14 @@ export default function TestimonySection() {
         src={bg}
         className="rounded-lg my-8 h-auto object-cover lg:col-start-2 lg:row-start-1 lg:row-end-4"
       />
-      {data ? (
+      {data && (
         <Pagination
           page={page}
           totalPages={data.totalPages}
           decrementPage={decrementPage}
           incrementPage={incrementPage}
         />
-      ) : null}
+      )}
     </section>
   );
 }
@@ -76,7 +96,9 @@ function TestimonyEntry({ id, name, message, title, image }) {
       className="pt-8 flex flex-col gap-8"
     >
       <div className="flex gap-4 items-center">
-        <img src={image} className="w-10 lg:w-20 aspect-auto rounded-full" />
+        <div className="w-10 lg:w-20 h-10 lg:h-20 rounded-full overflow-hidden">
+          <img src={image} className="object-cover" />
+        </div>
         <div>
           <h2 className="text-sm lg:text-xl font-semibold">{name}</h2>
           <span className="text-[10px] lg:text-sm opacity-50">{title}</span>
