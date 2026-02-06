@@ -3,7 +3,7 @@
 A modern, interactive furniture e-commerce landing page featuring a product catalog, testimonials, and newsletter subscription.
 **This project serve as submission for Lumoshive Academy FE Bootcamp's Mini project.**
 
-Visit the live site: //TODO
+Visit the live site deployed on <a href="https://furnishop-mu.vercel.app/" target="_blank" rel="noopener noreferrer">Vercel</a>
 
 ## What It Does
 
