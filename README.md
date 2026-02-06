@@ -1,16 +1,40 @@
-# React + Vite
+# FurniShop - Premium Furniture Store Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive furniture e-commerce landing page featuring a product catalog, testimonials, and newsletter subscription.
+**This project serve as submission for Lumoshive Academy FE Bootcamp's Mini project.**
 
-Currently, two official plugins are available:
+Visit the live site: //TODO
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What It Does
 
-## React Compiler
+- **Browse Products** - Explore furniture catalog with pagination feature.
+- **Responsive Design** - The UI stays perfect on any device sizes.
+- **Conditional Rendering** - Modern interactive website with error and loading handling.
+- **Smooth Animations** - Uses a mix of CSS animation and Framer Motion library for complex animations.
+- **Newsletter Signup** - Email validation with DOMPurify and intuitive feedback
+- **SEO & Accessibility Optimized** - Proper meta tags, semantic HTML and rich accessibility tags where it most important.
+- **Clean Architecture** - Per-section separation, easily extensible and better team development.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quick Start
 
-## Expanding the ESLint configuration
+```bash
+# Install dependencies
+pnpm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Run development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
+```
+
+## Tech Stack
+
+- **React.JS** - UI framework
+- **Tailwind CSS v4** - Styling
+- **Axios** - Easy HTTP Request
+- **Framer Motion** - Animations
+- **React Hook Form** - Form handling

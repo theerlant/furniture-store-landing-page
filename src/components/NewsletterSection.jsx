@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import DOMPurify from "dompurify";
 import bg from "../assets/newsletter-image.jpg";
 import { useState } from "react";
 
@@ -8,6 +9,7 @@ export default function NewsLetterSection() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     mode: "onSubmit",
     reValidateMode: "onSubmit", // validity check only on submit
@@ -16,7 +18,11 @@ export default function NewsLetterSection() {
   const [msg, setMsg] = useState("");
 
   const onFormSubmit = (data) => {
+    // Sanitize email input with DOMPurify
+    const sanitizedEmail = DOMPurify.sanitize(data.email);
+    
     setMsg("You have been subscribed");
+    reset();
     setTimeout(() => setMsg(""), 3000);
   };
 

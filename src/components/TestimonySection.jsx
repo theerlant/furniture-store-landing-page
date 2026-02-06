@@ -1,5 +1,6 @@
 import { RiArrowRightLine } from "@remixicon/react";
 import { RiArrowLeftLine } from "@remixicon/react";
+import DOMPurify from "dompurify";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -100,11 +101,11 @@ function TestimonyEntry({ id, name, message, title, image }) {
           <img src={image} className="object-cover" />
         </div>
         <div>
-          <h2 className="text-sm lg:text-xl font-semibold">{name}</h2>
-          <span className="text-[10px] lg:text-sm opacity-50">{title}</span>
+          <h2 className="text-sm lg:text-xl font-semibold">{DOMPurify.sanitize(name)}</h2>
+          <span className="text-[10px] lg:text-sm opacity-50">{DOMPurify.sanitize(title)}</span>
         </div>
       </div>
-      <p>"{message}"</p>
+      <p>"{DOMPurify.sanitize(message)}"</p>
     </motion.div>
   );
 }

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { DOMPurify } from "dompurify";
 
 export default function AllProductSection() {
   return (
@@ -49,7 +50,11 @@ function ProductList() {
   return (
     <div>
       {error && (
-        <div aria-live="assertive" role="alert" className="bg-red-500/50 border border-red-400 p-3 rounded-lg mb-4">
+        <div
+          aria-live="assertive"
+          role="alert"
+          className="bg-red-500/50 border border-red-400 p-3 rounded-lg mb-4"
+        >
           Failed to load products. Please try again.
         </div>
       )}
@@ -114,7 +119,7 @@ function ProductEntry({ id, title, image, price, price_after_discount }) {
         </button>
       </div>
       <h2 className="text-base lg:text-2xl font-semibold line-clamp-1">
-        {title}
+        {DOMPurify.sanitize(title)}
       </h2>
       <div className="flex gap-2 items-end">
         <span

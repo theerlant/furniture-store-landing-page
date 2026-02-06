@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import DOMPurify from "dompurify";
 import axios from "axios";
 
 export default function HeaderSection() {
@@ -28,9 +29,9 @@ export default function HeaderSection() {
       >
         <div className="h-screen w-full flex flex-col justify-center items-center gap-12">
           <h1 className="font-semibold text-2xl lg:text-5xl xl:text-[64px] leading-[1.2] text-center">
-            {data?.title}
+            {data?.title && DOMPurify.sanitize(data.title)}
           </h1>
-          <p className="px-0 xl:px-12 text-balance">{data?.description}</p>
+          <p className="px-0 xl:px-12 text-balance">{data?.description && DOMPurify.sanitize(data.description)}</p>
           <a
             href="#products"
             aria-label="Shop for furniture now"
