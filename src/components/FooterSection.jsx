@@ -17,19 +17,19 @@ export default function FooterSection() {
           className="flex *:shrink-0 justify-between lg:justify-end gap-4 text-sm"
         >
           <ContactButton>
-            <RiInstagramLine size={20} />
+            <RiInstagramLine size={20} aria-label="Instagram" />
           </ContactButton>
           <ContactButton>
-            <RiFacebookBoxFill size={20} />
+            <RiFacebookBoxFill size={20} aria-label="Facebook" />
           </ContactButton>
           <ContactButton>
-            <RiTwitterXFill size={20} />
+            <RiTwitterXFill size={20} aria-label="X" />
           </ContactButton>
           <ContactButton>
-            <RiGithubFill size={20} />
+            <RiGithubFill size={20} aria-label="Github" />
           </ContactButton>
           <ContactButton>
-            <RiThreadsFill size={20} />
+            <RiThreadsFill size={20} aria-label="Threads" />
           </ContactButton>
         </div>
       </div>
@@ -77,7 +77,11 @@ export default function FooterSection() {
 }
 
 function ContactButton({ children }) {
-  return <div className="p-4 bg-white/10 rounded-full">{children}</div>;
+  return (
+    <div className="p-4 bg-white/10 hover:scale-105 cursor-pointer rounded-full">
+      {children}
+    </div>
+  );
 }
 
 function FooterLinkList({ title, links }) {
@@ -86,8 +90,8 @@ function FooterLinkList({ title, links }) {
       <h2 className="mb-6 text-lg font-medium font-raleway">{title}</h2>
       <ul id={title} className="flex flex-col gap-4">
         {links.map((v, i) => (
-          <li className="font-inter text-sm ">
-            <a href="#" key={i}>
+          <li className="font-inter text-sm hover:underline">
+            <a href="#contacts" key={i}>
               {v}
             </a>
           </li>

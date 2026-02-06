@@ -3,6 +3,7 @@ import { RiArrowLeftLine } from "@remixicon/react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 import bg from "../assets/testimony-static-image.jpg";
 
@@ -60,9 +61,20 @@ export default function TestimonySection() {
   );
 }
 
-function TestimonyEntry({ name, message, title, image }) {
+function TestimonyEntry({ id, name, message, title, image }) {
   return (
-    <div className="pt-8 flex flex-col gap-8">
+    <motion.div
+      key={id}
+      initial={{
+        opacity: 0,
+        y: 10,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      className="pt-8 flex flex-col gap-8"
+    >
       <div className="flex gap-4 items-center">
         <img src={image} className="w-10 lg:w-20 aspect-auto rounded-full" />
         <div>
@@ -71,7 +83,7 @@ function TestimonyEntry({ name, message, title, image }) {
         </div>
       </div>
       <p>"{message}"</p>
-    </div>
+    </motion.div>
   );
 }
 
@@ -87,14 +99,14 @@ function Pagination({
   return (
     <div className="flex gap-4 items-center">
       <button
-        className={`p-3 mr-2 bg-white hover:opacity-80 active:scale-95 rounded-full drop-shadow-lg drop-shadow-black/5 ${isFirstPage ? "opacity-50" : "bg-primary! text-white"}`}
+        className={`p-3 mr-2 bg-white hover:opacity-80 active:scale-90 transition-colors rounded-full drop-shadow-lg drop-shadow-black/5 ${isFirstPage ? "opacity-50" : "bg-primary! text-white"}`}
         disabled={isFirstPage}
         onClick={() => decrementPage()}
       >
         <RiArrowLeftLine />
       </button>
       <button
-        className={`p-3 mr-2 bg-white hover:opacity-80 active:scale-95 rounded-full drop-shadow-lg drop-shadow-black/5 ${isLastPage ? "opacity-50" : "bg-primary! text-white"}`}
+        className={`p-3 mr-2 bg-white hover:opacity-80 active:scale-90 transition-colors rounded-full drop-shadow-lg drop-shadow-black/5 ${isLastPage ? "opacity-50" : "bg-primary! text-white"}`}
         disabled={isLastPage}
         onClick={() => incrementPage()}
       >

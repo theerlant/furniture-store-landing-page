@@ -20,7 +20,7 @@ export default function CategorySection() {
   return (
     <section
       id="category"
-      className="relative py-12 lg:p-8 md:px-18 lg:px-32 block lg:flex *:shrink-0 overflow-x-auto"
+      className="relative py-12 lg:p-8 md:px-18 lg:px-32 block lg:flex *:shrink-0 overflow-x-hidden lg:overflow-x-auto"
     >
       <div className="p-6 pb-2 lg:p-0 lg:pr-8 grid grid-cols-[auto_1fr] lg:grid-cols-1 gap-6 w-full lg:w-72 items-center">
         <h1 className="font-semibold text-2xl lg:text-[40px]">
@@ -50,7 +50,7 @@ export default function CategorySection() {
 
 function CategoryItem({ title, imageSrc }) {
   return (
-    <div className="relative aspect-1.4 w-50 lg:w-60 xl:w-70 rounded-lg overflow-hidden">
+    <div className="relative aspect-1.4 w-50 lg:w-60 xl:w-70 rounded-lg overflow-hidden hover:scale-102 transition-transform">
       <img src={imageSrc} className="h-full object-cover" />
       <span className="absolute left-0 right-0 bottom-6 text-center text-lg font-semibold">
         {title}

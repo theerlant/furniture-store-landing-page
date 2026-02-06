@@ -31,9 +31,12 @@ export default function HeaderSection() {
             {data?.title}
           </h1>
           <p className="px-0 xl:px-12 text-balance">{data?.description}</p>
-          <button className="bg-white/30 border border-t-white/50 border-l-white/80 border-white/50 rounded-lg backdrop-blur-lg py-3 px-9 md:px-16 font-semibold text-sm lg:text-[20px]">
+          <a
+            href="#products"
+            className="bg-white/30 border border-t-white/50 border-l-white/80 border-white/50 hover:scale-105 transition-transform rounded-lg backdrop-blur-lg py-3 px-9 md:px-16 font-semibold text-sm lg:text-[20px]"
+          >
             Shop Now
-          </button>
+          </a>
         </div>
       </section>
     </>

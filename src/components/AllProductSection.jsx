@@ -1,11 +1,10 @@
-import { RiArrowRightLongLine } from "@remixicon/react";
-import { RiArrowLeftLongLine } from "@remixicon/react";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { RiArrowRightLine } from "@remixicon/react";
 import { RiAddLine } from "@remixicon/react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function AllProductSection() {
   return (
@@ -39,10 +38,6 @@ function ProductList() {
       .finally(() => setLoading(false));
   }, [page]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   const decrementPage = () => {
     if (page > 1) setPage(page - 1);
   };
@@ -55,10 +50,12 @@ function ProductList() {
     <div>
       {data ? (
         <>
-          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {data?.products.map((v) => (
-              <ProductEntry key={v.id} {...v} />
-            ))}
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 overflow-visible">
+            <AnimatePresence key={page} initial={false} mode="wait">
+              {data?.products.map((v) => (
+                <ProductEntry key={v.id} {...v} />
+              ))}
+            </AnimatePresence>
           </ul>
           <div className="mt-12">
             <Pagination
@@ -74,14 +71,21 @@ function ProductList() {
   );
 }
 
-function ProductEntry({ title, image, price, price_after_discount }) {
+function ProductEntry({ id, title, image, price, price_after_discount }) {
   const actualPrice = price_after_discount ?? price;
   return (
-    <li className="flex flex-col gap-2">
-      <div className="border border-black/20 w-full aspect-square rounded-2xl overflow-hidden relative">
+    <motion.li
+      className="will-change-transform flex flex-col gap-2"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.98 }}
+      transition={{ duration: 0.3 }}
+      layout
+    >
+      <div className="border border-black/20 w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center p-4 relative">
         <img
           src={image}
-          className="p-4 rounded-2xl w-auto h-auto absolute top-[50%] -translate-y-[50%]"
+          className="max-w-full max-h-full object-contain"
           alt={`Image of ${title}`}
         ></img>
         <button className="absolute bottom-2 right-2 p-0.5 bg-black/10 text-black/70 rounded-full">
@@ -107,7 +111,7 @@ function ProductEntry({ title, image, price, price_after_discount }) {
           </span>
         ) : null}
       </div>
-    </li>
+    </motion.li>
   );
 }
 
