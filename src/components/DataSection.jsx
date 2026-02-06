@@ -17,7 +17,7 @@ export default function DataSection() {
   return (
     <section
       id="track-record"
-      className="mx-6 -translate-y-18 grid grid-cols-2 md:grid-cols-4 gap-y-12 px-6 py-12 rounded-[20px] bg-primary text-white"
+      className="mx-6 lg:m-8 md:mx-18 lg:mx-32 -translate-y-18 grid grid-cols-2 md:grid-cols-4 gap-y-12 px-6 py-12 rounded-[20px] bg-primary text-white"
     >
       {data ? (
         <>
@@ -41,8 +41,10 @@ function DataItem({ heading, subtitle }) {
     md:nth-[2n]:after:block
     md:nth-[4n]:after:hidden"
     >
-      <h1 className="font-semibold text-[24px] leading-[1.1]">{heading}</h1>
-      <h2 className="font-normal text-[14px] leading-[1.3] tracking-wide">
+      <h1 className="font-semibold text-[24px] lg:text-[40px] leading-[1.1]">
+        {heading}
+      </h1>
+      <h2 className="font-normal text-[14px] lg:text-[20px] leading-[1.3] tracking-wide">
         {subtitle}
       </h2>
     </div>

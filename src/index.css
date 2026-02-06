@@ -10,3 +10,23 @@
 body {
     font-family: 'Saira', sans-serif;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

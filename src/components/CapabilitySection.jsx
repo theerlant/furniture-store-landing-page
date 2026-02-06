@@ -4,13 +4,13 @@ export default function CapabilitySection() {
   return (
     <section
       id="capabilities"
-      className="mx-8 my-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+      className="m-6 lg:m-8 md:mx-18 lg:mx-32 grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch"
     >
       <div className="order-2 flex flex-col gap-6">
-        <h1 className="font-semibold text-2xl ">
+        <h1 className="font-semibold text-2xl lg:text-[40px]">
           We Create Your Home More Aesthetic
         </h1>
-        <p className="text-sm">
+        <p className="text-sm lg:text-[20px]">
           Furnitre power is a software as services for multiperpose business
           management system,
         </p>
@@ -22,7 +22,7 @@ export default function CapabilitySection() {
           <li className="grid grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-4 items-center">
             <RiCheckboxCircleFill size={24} />
             <h2 className="font-semibold text-base">Valuation Services</h2>
-            <p className="col-start-2 text-sm">
+            <p className="col-start-2 text-sm lg:text-base">
               Sometimes features require a short description. This can be
               detailed description
             </p>
@@ -32,7 +32,7 @@ export default function CapabilitySection() {
             <h2 className="font-semibold text-base">
               Development of Furniture Models
             </h2>
-            <p className="col-start-2 text-sm">
+            <p className="col-start-2 text-sm lg:text-base">
               Sometimes features require a short description. This can be
               detailed description
             </p>

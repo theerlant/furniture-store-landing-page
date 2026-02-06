@@ -15,20 +15,22 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed z-10 top-0 left-0 right-0 m-6 md:mx-18 flex flex-col items-end text-white`}
+        className={`fixed z-10 top-0 left-0 right-0 m-6 lg:m-8 md:mx-18 lg:mx-32 flex flex-col items-end text-white`}
       >
         <div
-          className={`w-full flex items-center justify-between transition-all duration-200 border rounded-2xl ${scrollY > window.screen.height * 0.1 ? "p-4 px-6 bg-gray-600/50 border-gray-400/40 backdrop-blur-lg overflow-hidden" : "bg-transparent border-transparent"}`}
+          className={`w-full flex items-center justify-between transition-all duration-200 spring-bounce-40 spring-duration-300 border rounded-2xl ${scrollY > window.screen.height * 0.1 ? "p-4 px-6 bg-gray-600/50 border-gray-400/40 backdrop-blur-lg overflow-hidden" : "bg-transparent border-transparent"}`}
         >
-          <h1 id="brand" className="flex-1 font-bold text-2xl">
+          <h1 id="brand" className="flex-1 font-bold text-2xl lg:text-4xl">
             FurniShop
           </h1>
           {isDesktop ? (
             <nav className="flex gap-12 justify-end">
-              <span className="font-semibold">Home</span>
-              <span>About</span>
-              <span>Features</span>
-              <span>Contact</span>
+              <a href="/" className="font-semibold">
+                Home
+              </a>
+              <a href="#">About</a>
+              <a href="#">Features</a>
+              <a href="#">Contact</a>
             </nav>
           ) : (
             <>
